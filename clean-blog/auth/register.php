@@ -11,6 +11,10 @@
 
 <?php
 
+if (isset($_SESSION['username'])){
+  header("location: http://localhost/CMS_Web_Project-V1/clean-blog/index.php");
+}
+
   if(isset($_POST['submit'])){
     if($_POST['email']== '' || $_POST['username'] == '' || $_POST['password'] == ''){
       echo "type somthing in the inputs";
@@ -18,6 +22,9 @@
         $email = $_POST['email']; 
         $username = $_POST['username'];
         $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
+
+
+
      $insert = $conn ->prepare("INSERT INTO users (email, username,mypassword)
           VALUES (:email, :username,:password)");
 

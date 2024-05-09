@@ -38,6 +38,6 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="../js/script.js"></script>
+        <script src="http://localhost/CMS_Web_Project-V1/clean-blog/js/scripts.js"></script>
     </body>
 </html>

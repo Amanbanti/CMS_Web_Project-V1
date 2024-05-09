@@ -1,12 +1,12 @@
-<?php
- require "../includes/header.php";
- ?>
+<?php require "../includes/header.php";?>
+<?php require "../config/config.php";?>
 
-<?php 
- require "../config/config.php";
- ?>
 
 <?php
+if (isset($_SESSION['username'])){
+  header("location: http://localhost/CMS_Web_Project-V1/clean-blog/index.php");
+}
+
 
 if(isset($_POST['submit'])){
     if($_POST['email'] == '' || $_POST['password'] == ''){
@@ -24,16 +24,20 @@ if(isset($_POST['submit'])){
         $row = $login->fetch(PDO::FETCH_ASSOC);
          
         if ($login->rowCount() > 0){
-            // Verify the password
+            // Verify the password bc the user is registered
             if (password_verify($password, $row['mypassword'])){
                 // Password is correct, redirect to index.php
+                
+                $_SESSION['username'] = $row['username'];
+
                 header("location: ../index.php");
-                exit; // Terminate the script after redirection
-            } else {
-                echo "Incorrect password";
-            }
+               
+            } else {?>
+                <php? echo?> <p style="color: red;">Incorrect password</P>
+           <?php }
         } else {
-            echo "User not found";
+            echo "User not Registered";
+            header("location: register.php");
         }
     }
 }

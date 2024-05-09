@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -13,7 +20,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="../css/styles.css" rel="stylesheet" />
+        <link href="http://localhost/CMS_Web_Project-V1/clean-blog/css/styles.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
@@ -26,19 +33,35 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../posts/create.html">create</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="login.html">login</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../auth/register.php">register</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/CMS_Web_Project-V1/clean-blog/index.php">Home</a></li>
+
+                        <?php if(isset($_SESSION['username'])) : ?>
+                        
                        
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/CMS_Web_Project-V1/clean-blog/posts/create.php">Create</a></li>
+                        <li class="nav-item dropdown mt-3">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <?php echo $_SESSION ['username']; ?>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="">Profile</a></li>
+                            <li><a class="dropdown-item" href="./auth/logout.php">Logout</a></li>
+                           
+                        </ul>
+                        </li> 
+
+                        <?php else : ?>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/CMS_Web_Project-V1/clean-blog/auth/login.php">Login</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="/CMS_Web_Project-V1/clean-blog/auth/register.php">Register</a></li>
+                        <?php endif; ?>
                       
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../contact.html">Contact</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.php">Contact</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
         <!-- Page Header-->
-        <header class="masthead" style="background-image: url('../assets/img/home-bg.jpg')">
+        <header class="masthead" style="background-image: url('http://localhost/CMS_Web_Project-V1/clean-blog/assets/img/home-bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
