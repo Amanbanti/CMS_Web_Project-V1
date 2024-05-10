@@ -2,7 +2,7 @@
 <?php require "../config/config.php";?>
 
 
-<?php
+<?php //last update
 if (isset($_SESSION['username'])){
   header("location: http://localhost/CMS_Web_Project-V1/clean-blog/index.php");
 }

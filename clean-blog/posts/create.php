@@ -1,14 +1,17 @@
+
+
 <?php require "../includes/header.php";?>
 <?php require "../config/config.php";?>
 
 
 <?php
+//last update
         //if the user is not found ,cant access this page
         if (!isset($_SESSION['username'])){
             header('location: http://localhost/CMS_Web_Project-V1/clean-blog/index.php');
 
           }
-          
+        
 
     if(isset($_POST['submit'])){
         if($_POST['title']=='' ||$_POST['subtitle'] == '' ||

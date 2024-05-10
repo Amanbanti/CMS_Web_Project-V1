@@ -1,4 +1,4 @@
-<?php require "includes/header.php";?>
+<?php require "includes/header.php"; //last update?>
 
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
@@ -26,7 +26,7 @@
                             <a href="#!">Start Bootstrap</a>
                             on September 18, 2022
                         </p>
-                    </div>
+                    </div> 
                     <!-- Divider-->
                     <hr class="my-4" />
                     <!-- Post preview-->
