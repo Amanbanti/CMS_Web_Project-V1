@@ -29,6 +29,7 @@ if(isset($_POST['submit'])){
                 // Password is correct, redirect to index.php
                 
                 $_SESSION['username'] = $row['username'];
+                $_SESSION['user_id'] = $row['id'];
 
                 header("location: ../index.php");
                
