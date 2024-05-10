@@ -1,64 +1,51 @@
 <?php require "includes/header.php"; //last update?>
+<?php require "config/config.php";?>
+
+<?php 
+     $posts = $conn->prepare("SELECT * FROM posts");
+     $posts->execute(); 
+    
+?>
 
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
 
                 <?php //echo 'Hello ' .$_SESSION['username'] ?>
                     <!-- Post preview-->
+
+            <?php 
+            while($row = $posts->fetch(PDO::FETCH_ASSOC)) { 
+                $title = $row['title'];
+                $subtitle = $row['subtitle'];
+                $user_name = $row['user_name'];
+                $date = $row['created_at'];
+               
+                
+                ?>
                     <div class="post-preview">
-                        <a href="posts/post.html">
-                            <h2 class="post-title">Man must explore, and this is exploration at its greatest</h2>
-                            <h3 class="post-subtitle">Problems look mighty small from 150 miles up</h3>
+                        <a href="http://localhost/CMS_Web_Project-V1/clean-blog/posts/post.php?post_id=<?php echo $row['id'] ?>">
+                            <h2 class="post-title"> <?php echo $title; ?>  </h2>
+                            <h3 class="post-subtitle"> <?php echo $subtitle; ?></h3>
                         </a>
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 24, 2022
+                            <a href="#!"> <?php echo $user_name; ?></a>
+                            
+                            <?php
+                            $new_date = date("F j, Y", strtotime($date));
+                            echo $new_date; // Output: May 10, 2024
+                            ?>
+
                         </p>
                     </div>
+            
+                    <?php  } ?>
+
+
                     <!-- Divider-->
                     <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html"><h2 class="post-title">I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.</h2></a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on September 18, 2022
-                        </p>
-                    </div> 
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Science has not yet mastered prophecy</h2>
-                            <h3 class="post-subtitle">We predict too much for the next year and yet far too little for the next ten.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on August 24, 2022
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Post preview-->
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">Failure is not an option</h2>
-                            <h3 class="post-subtitle">Many say exploration is part of our destiny, but it’s actually our duty to future generations.</h3>
-                        </a>
-                        <p class="post-meta">
-                            Posted by
-                            <a href="#!">Start Bootstrap</a>
-                            on July 8, 2022
-                        </p>
-                    </div>
-                    <!-- Divider-->
-                    <hr class="my-4" />
-                    <!-- Pager-->
                     
+             
                 </div>
             </div>
 
