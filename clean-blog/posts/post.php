@@ -53,6 +53,13 @@
                             &middot; Images by
                             <a href="https://www.flickr.com/photos/nasacommons/">NASA on The Commons</a>
                         </p> -->
+                        <?php if(isset($_SESSION['username'])){ ?>
+                            <?php if ($_SESSION['username'] ==$post['user_name']){ ?>
+                        
+                            <a href="http://localhost/CMS_Web_Project-V1/clean-blog/posts/delete.php?del_id=<?php echo $post['id']?>" class="btn btn-danger text-center float-end">Delete</a>
+                            <a href="http://localhost/CMS_Web_Project-V1/clean-blog/posts/update.php?upd_id=<?php echo $post['id']?>" class="btn btn-warning text-center">Update</a>
+                         <?php  }?>
+                        <?php  }?>
                     </div>
                 </div>
             </div>
