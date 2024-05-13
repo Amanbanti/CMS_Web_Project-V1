@@ -83,7 +83,7 @@
 
 
     <div class="form-outline mb-4">
-        <input type="file" name="img"  id="form2Example1" class="form-control" placeholder="image" />
+        <input type="file" name="img" value=" <?php echo "<img src='images/".$rows['img'] ;?>"  id="form2Example1" class="form-control" placeholder="image" />
     </div>
 
     <!-- Submit button -->

@@ -5,6 +5,16 @@
 
 
 <?php
+
+
+
+
+    
+$categories = $conn->prepare("SELECT * FROM categories");
+$categories->execute(); 
+
+
+
 //last update
         //if the user is not found ,cant access this page
         if (!isset($_SESSION['username'])){
@@ -15,12 +25,13 @@
 
     if(isset($_POST['submit'])){
         if($_POST['title']=='' ||$_POST['subtitle'] == '' ||
-         $_POST['body'] == ''){
-            echo 'one or more inputs are missing!';
+         $_POST['body'] == '' || $_POST['category_id'] == ''){
+            echo '<p style="color: red";>one or more inputs are missing! </p>';
          }else{
            $title= $_POST['title'];
            $subtitle= $_POST['subtitle'];
            $body= $_POST['body'];
+           $category_id=$_POST['category_id'];
            $img= $_FILES['img']['name'];
 
            //$_SESSION['user_id'] already set in login page
@@ -30,12 +41,13 @@
            $dir='images/' .basename($img);
 
         //for the protection of the database(:title)
-           $insert = $conn->prepare("INSERT INTO posts(title,subtitle,body,img,user_id,user_name) VALUES (:title,:subtitle, :body, :img , :user_id , :user_name)");
+           $insert = $conn->prepare("INSERT INTO posts(title,subtitle,body,category_id,img,user_id,user_name) VALUES (:title,:subtitle, :body,:category_id, :img , :user_id , :user_name)");
 
            $insert->execute([
             ':title' => $title,
             ':subtitle' => $subtitle,
             ':body' => $body,
+            ':category_id' => $category_id,
             ':img' => $img,
             ':user_id' => $user_id,
             ':user_name' => $user_name,
@@ -69,6 +81,17 @@
               <div class="form-outline mb-4">
                 <textarea type="text" name="body" id="form2Example1" class="form-control" placeholder="body" rows="8"></textarea>
             </div>
+
+            <div class="form-outline mb-4">
+              <select name="category_id" class="form-select" aria-label="Default select example">
+              
+                <?php while($cat = $categories->fetch(PDO::FETCH_ASSOC)) { ?>
+                  <option value="<?php echo $cat['id']; ?>"><?php echo $cat['name']; ?></option>
+                <?php } ?>
+              </select>
+            </div>
+
+
 
               
              <div class="form-outline mb-4">

@@ -9,9 +9,12 @@ if (isset($_SESSION['username'])){
 
 
 if(isset($_POST['submit'])){
-    if($_POST['email'] == '' || $_POST['password'] == ''){
-        echo "Type something in both inputs";
-    }else{
+    if($_POST['email'] == '' || $_POST['password'] == ''){ ?>
+        <div class="alert alert-danger text-center " role="alert">
+                  Type somthing in the inputs!
+
+          </div>
+   <?php }else{
         $email = $_POST['email']; 
         $password = $_POST['password'];
 
@@ -25,21 +28,28 @@ if(isset($_POST['submit'])){
          
         if ($login->rowCount() > 0){
             // Verify the password bc the user is registered
-            if (password_verify($password, $row['mypassword'])){
-                // Password is correct, redirect to index.php
-                
-                $_SESSION['username'] = $row['username'];
-                $_SESSION['user_id'] = $row['id'];
+                    if (password_verify($password, $row['mypassword'])){
+                        // Password is correct, redirect to index.php
+                        
+                        $_SESSION['username'] = $row['username'];
+                        $_SESSION['user_id'] = $row['id'];
 
-                header("location: ../index.php");
-               
-            } else {?>
-                <php? echo?> <p style="color: red;">Incorrect password</P>
+                        header("location: ../index.php");
+                      
+                    } else {?>
+                        <div class="alert alert-danger text-center " role="alert">
+                              The email or the password is wrong!
+
+                          </div>
+                  <?php }
+        } else { ?>
+
+                <div class="alert alert-danger text-center " role="alert">
+                         First Registere!
+
+                  </div>
+          
            <?php }
-        } else {
-            echo "User not Registered";
-            header("location: register.php");
-        }
     }
 }
 ?>

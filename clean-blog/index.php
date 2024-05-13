@@ -4,6 +4,12 @@
 <?php 
      $posts = $conn->prepare("SELECT * FROM posts");
      $posts->execute(); 
+
+
+
+     $categories = $conn->prepare("SELECT * FROM categories");
+     $categories->execute(); 
+    
     
 ?>
 
@@ -48,5 +54,30 @@
              
                 </div>
             </div>
+
+
+
+            <!--categorie section !-->
+
+         <div class="row gx-4 gx-lg-5 justify-content-center">
+            <h3 class="text-center">Categories</h3>
+            <br>
+            <br>
+            <br>
+                <?php  while( $category =  $categories->fetch(PDO::FETCH_ASSOC)) { ?>
+                    <div class="col-md-6 ">
+                    <a href="http://localhost/CMS_Web_Project-V1/clean-blog/categories/category.php?cat_id=<?php echo $category['id']; ?>">
+                        <div class="alert alert-dark bg-dark text-center text-white" role="alert">
+                        <?php echo $category['name'] ?> 
+
+                        </div>
+                    </a>
+                    </div>
+
+                <?php }?>
+             </div>
+
+
+
 
 <?php require "includes/footer.php";?>

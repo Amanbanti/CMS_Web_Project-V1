@@ -17,12 +17,15 @@ if (isset($_SESSION['username'])){
 
   if(isset($_POST['submit'])){
     if($_POST['email']== '' || $_POST['username'] == '' || $_POST['password'] == ''){
-      echo "type somthing in the inputs";
-    }else{
+      ?>
+      <div class="alert alert-danger text-center " role="alert">
+                Type somthing in the inputs!
+
+        </div>
+  <?php  }else{
         $email = $_POST['email']; 
         $username = $_POST['username'];
         $password = password_hash($_POST['password'],PASSWORD_DEFAULT);
-
 
 
      $insert = $conn ->prepare("INSERT INTO users (email, username,mypassword)
