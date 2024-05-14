@@ -26,7 +26,11 @@
 			Sorry, the page you are looking
 			for does not exist.
 		</p>
+		<a href="http://localhost/CMS_Web_Project-V1/clean-blog/index.php" class="btn btn-primary">Go Home</a>
 	</div>
 </body>
 
 </html>
+
+
+

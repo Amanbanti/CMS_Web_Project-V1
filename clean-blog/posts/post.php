@@ -11,8 +11,10 @@
         $select->execute();
         $post = $select -> fetch(PDO::FETCH_ASSOC);
     }else{
-        echo "404 not found!";
-    }
+        header ("Location: http://localhost/CMS_Web_Project-V1/clean-blog/404.php");
+        exit();
+    }?>
+
 
 
 

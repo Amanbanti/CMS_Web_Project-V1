@@ -31,4 +31,10 @@
 
         header('location: http://localhost/CMS_Web_Project-V1/clean-blog/index.php');
      }
+     
+    else{
+        header ("Location: http://localhost/CMS_Web_Project-V1/clean-blog/404.php");
+        exit();
+    }
+
 ?>

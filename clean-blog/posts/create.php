@@ -26,7 +26,11 @@ $categories->execute();
     if(isset($_POST['submit'])){
         if($_POST['title']=='' ||$_POST['subtitle'] == '' ||
          $_POST['body'] == '' || $_POST['category_id'] == ''){
-            echo '<p style="color: red";>one or more inputs are missing! </p>';
+            echo '   <div class="alert alert-danger text-center " role="alert">
+            one or more inputs are missing!
+
+          </div>';
+    
          }else{
            $title= $_POST['title'];
            $subtitle= $_POST['subtitle'];

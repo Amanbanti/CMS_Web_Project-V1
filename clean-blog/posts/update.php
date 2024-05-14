@@ -25,7 +25,10 @@
                 //second query
                 if(isset($_POST['submit'])){
                     if($_POST['title']=='' || $_POST['subtitle'] == '' || $_POST['body'] == ''){
-                        echo 'one or more inputs are missing!';
+                        echo '<div class="alert alert-danger text-center " role="alert">
+                        Type somthing in the inputs!
+      
+                </div>';
                     } else {
 
 
@@ -59,9 +62,14 @@
                     // header('location: http://localhost/CMS_Web_Project-V1/clean-blog/index.php');
                     }
                 }
-            }
+            }else{
+                header ("Location: http://localhost/CMS_Web_Project-V1/clean-blog/404.php");
+                exit();
+            }?>
+
      
-?>
+    
+
 
 
 
