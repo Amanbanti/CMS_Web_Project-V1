@@ -19,7 +19,7 @@
 
 
 
-?>
+
 
         <!-- Page Header-->
         <header class="masthead" style="background-image: url('images/<?php echo $post['img']; ?>')">
