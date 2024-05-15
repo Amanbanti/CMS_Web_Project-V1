@@ -1,7 +1,6 @@
 <?php
 
-session_start();
-
+    session_start();
 
 ?>
 
@@ -37,13 +36,13 @@ session_start();
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="admins/admins.html" style="margin-left: 20px;">Admins</a>
+                        <a class="nav-link" href="http://localhost/CMS_Web_Project-V1/clean-blog/admin-panel/admins/admins.php" style="margin-left: 20px;">Admins</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="categories-admins/show-categories.html" style="margin-left: 20px;">Categories</a>
+                        <a class="nav-link" href="http://localhost/CMS_Web_Project-V1/clean-blog/admin-panel/categories-admins/show-categories.php" style="margin-left: 20px;">Categories</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="posts-admins/show-posts.html" style="margin-left: 20px;">Posts</a>
+                        <a class="nav-link" href="http://localhost/CMS_Web_Project-V1/clean-blog/admin-panel/posts-admins/show-posts.php" style="margin-left: 20px;">Posts</a>
                     </li>
                     <!--  <li class="nav-item">
                         <a class="nav-link" href="#" style="margin-left: 20px;">Comments</a>
@@ -93,4 +92,4 @@ session_start();
       </div>
     </div>
     </nav>
-    <div class="container-fluid">
+    <div class="container">
