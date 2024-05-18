@@ -5,7 +5,7 @@
 
 
 <?php 
-     $posts = $conn->prepare("SELECT * FROM posts");
+     $posts = $conn->prepare("SELECT * FROM posts  WHERE status = 1");
      $posts->execute(); 
 
 

@@ -2,7 +2,7 @@
 <?php require "config/config.php";?>
 
 <?php 
-     $posts = $conn->prepare("SELECT * FROM posts LIMIT 5");
+     $posts = $conn->prepare("SELECT * FROM posts WHERE status = 1 LIMIT 5");
      $posts->execute(); 
 
 

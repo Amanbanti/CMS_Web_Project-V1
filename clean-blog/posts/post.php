@@ -7,7 +7,7 @@
         $id= $_GET['post_id'];
        
 
-        $select = $conn-> query("SELECT * FROM posts WHERE id = '$id' ");
+        $select = $conn-> query("SELECT * FROM posts WHERE id = '$id'");
         $select->execute();
         $post = $select -> fetch(PDO::FETCH_ASSOC);
     }else{
