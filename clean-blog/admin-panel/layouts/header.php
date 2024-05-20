@@ -44,6 +44,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="http://localhost/CMS_Web_Project-V1/clean-blog/admin-panel/posts-admins/show-posts.php" style="margin-left: 20px;">Posts</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost/CMS_Web_Project-V1/clean-blog/admin-panel/admin-comments/show-comments.php" style="margin-left: 20px;">Comments</a>
+                    </li>
                     <!--  <li class="nav-item">
                         <a class="nav-link" href="#" style="margin-left: 20px;">Comments</a>
                     </li> -->

@@ -5,8 +5,6 @@
      $posts = $conn->prepare("SELECT * FROM posts WHERE status = 1 LIMIT 5");
      $posts->execute(); 
 
-
-
      $categories = $conn->prepare("SELECT * FROM categories");
      $categories->execute(); 
     
