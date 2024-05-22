@@ -59,12 +59,15 @@ $categories->execute();
            ]);
 
            if (move_uploaded_file($_FILES['img']['tmp_name'], $dir)){
-            header('location: http://localhost/CMS_Web_Project-V1/clean-blog/index.php');
-
+            // header('location: http://localhost/CMS_Web_Project-V1/clean-blog/index.php');
+        
            }
 
+          
 
          }
+
+    
     }
 
 
